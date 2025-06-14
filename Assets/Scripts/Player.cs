@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         // Flip model
         if (move.ReadValue<float>() != 0)
         {
-            transform.localScale = new Vector3(10 * move.ReadValue<float>(), 10, 1);
+            transform.localScale = new Vector3(1 * move.ReadValue<float>(), 1, 1);
         }
         // Animation(cần có trị tuyệt đối do đk là lớn hơn 0.1 thì player run)
         anim.SetFloat("move", Mathf.Abs(move.ReadValue<float>()));
