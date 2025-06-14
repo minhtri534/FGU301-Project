@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 74222f94eae8fe94c91bed501b2a2ffc
+guid: a108b856fc5f18f47a9c2f52b73007b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7675826601332790545
-    second: coin_0
+      213: -1617209406775790638
+    second: slime_purple_0
   - first:
-      213: -675104096977794455
-    second: coin_1
+      213: 3387878688400670293
+    second: slime_purple_1
   - first:
-      213: -4412926668834298731
-    second: coin_2
+      213: -4394475738540041557
+    second: slime_purple_2
   - first:
-      213: -4862007459847594908
-    second: coin_3
+      213: 1214624252112049841
+    second: slime_purple_3
   - first:
-      213: -7914957615168794202
-    second: coin_4
+      213: 2519323123592359420
+    second: slime_purple_4
   - first:
-      213: 2278881825021241808
-    second: coin_5
+      213: 1982192389137497048
+    second: slime_purple_5
   - first:
-      213: 1763547749914876530
-    second: coin_6
+      213: 3014350427971737073
+    second: slime_purple_6
   - first:
-      213: 5999283557275819326
-    second: coin_7
+      213: -5185611389655813280
+    second: slime_purple_7
   - first:
-      213: -1468538274757268107
-    second: coin_8
+      213: 3533774183753432373
+    second: slime_purple_8
   - first:
-      213: -7420241631526070820
-    second: coin_9
+      213: -9188101176490687506
+    second: slime_purple_9
   - first:
-      213: -5387031686188697322
-    second: coin_10
+      213: -4078577588832239441
+    second: slime_purple_10
   - first:
-      213: -2681995995293344776
-    second: coin_11
+      213: -2663131328560803267
+    second: slime_purple_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,17 +129,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coin_0
+      name: slime_purple_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 12
-        height: 12
+        x: 4
+        y: 47
+        width: 16
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,19 +161,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1155fe920a3068a60800000000000000
-      internalID: 7675826601332790545
+      spriteID: 2d375b5ec948e89e0800000000000000
+      internalID: -1617209406775790638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_1
+      name: slime_purple_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 2
-        width: 10
+        x: 28
+        y: 47
+        width: 16
         height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -170,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96a4a31966c81a6f0800000000000000
-      internalID: -675104096977794455
+      spriteID: 55efc34a7b9240f20800000000000000
+      internalID: 3387878688400670293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_2
+      name: slime_purple_2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 2
-        width: 8
-        height: 12
+        x: 52
+        y: 47
+        width: 16
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 594a84c439222c2c0800000000000000
-      internalID: -4412926668834298731
+      spriteID: baa9f36499fa303c0800000000000000
+      internalID: -4394475738540041557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_3
+      name: slime_purple_3
       rect:
         serializedVersion: 2
-        x: 53
-        y: 2
-        width: 6
-        height: 12
+        x: 76
+        y: 47
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46c1c7ca9fda68cb0800000000000000
-      internalID: -4862007459847594908
+      spriteID: 1b696ba62563bd010800000000000000
+      internalID: 1214624252112049841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_4
+      name: slime_purple_4
       rect:
         serializedVersion: 2
-        x: 68
-        y: 2
-        width: 8
-        height: 12
+        x: 4
+        y: 23
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a15797fbfb682290800000000000000
-      internalID: -7914957615168794202
+      spriteID: cfd6620780f66f220800000000000000
+      internalID: 2519323123592359420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_5
+      name: slime_purple_5
       rect:
         serializedVersion: 2
-        x: 83
-        y: 2
-        width: 10
-        height: 12
+        x: 28
+        y: 23
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d92c7122f630af10800000000000000
-      internalID: 2278881825021241808
+      spriteID: 8dbf50fc979228b10800000000000000
+      internalID: 1982192389137497048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_6
+      name: slime_purple_6
       rect:
         serializedVersion: 2
-        x: 98
-        y: 2
-        width: 12
-        height: 12
+        x: 52
+        y: 23
+        width: 16
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +293,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27a9d1ab551697810800000000000000
-      internalID: 1763547749914876530
+      spriteID: 1f55dc75ebf15d920800000000000000
+      internalID: 3014350427971737073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_7
+      name: slime_purple_7
       rect:
         serializedVersion: 2
-        x: 115
-        y: 2
-        width: 10
-        height: 12
+        x: 76
+        y: 23
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,20 +315,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3d544a1c9cb14350800000000000000
-      internalID: 5999283557275819326
+      spriteID: 06378586ae10908b0800000000000000
+      internalID: -5185611389655813280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_8
+      name: slime_purple_8
       rect:
         serializedVersion: 2
-        x: 132
-        y: 2
-        width: 8
-        height: 12
+        x: 4
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,20 +337,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57d27024834be9be0800000000000000
-      internalID: -1468538274757268107
+      spriteID: 53db11bb5ec7a0130800000000000000
+      internalID: 3533774183753432373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_9
+      name: slime_purple_9
       rect:
         serializedVersion: 2
-        x: 149
-        y: 2
-        width: 6
-        height: 12
+        x: 28
+        y: 0
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,20 +359,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd5d25ddc81060990800000000000000
-      internalID: -7420241631526070820
+      spriteID: ee38cee19ae4d7080800000000000000
+      internalID: -9188101176490687506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_10
+      name: slime_purple_10
       rect:
         serializedVersion: 2
-        x: 164
-        y: 2
-        width: 8
-        height: 12
+        x: 52
+        y: 0
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,20 +381,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 619f2fe193b6d35b0800000000000000
-      internalID: -5387031686188697322
+      spriteID: fa009ccca4bf567c0800000000000000
+      internalID: -4078577588832239441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coin_11
+      name: slime_purple_11
       rect:
         serializedVersion: 2
-        x: 179
-        y: 2
-        width: 10
-        height: 12
+        x: 76
+        y: 0
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,8 +403,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fb15832ad2a7cad0800000000000000
-      internalID: -2681995995293344776
+      spriteID: d325be2aa28aa0bd0800000000000000
+      internalID: -2663131328560803267
       vertices: []
       indices: 
       edges: []
@@ -410,18 +423,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coin_0: 7675826601332790545
-      coin_1: -675104096977794455
-      coin_10: -5387031686188697322
-      coin_11: -2681995995293344776
-      coin_2: -4412926668834298731
-      coin_3: -4862007459847594908
-      coin_4: -7914957615168794202
-      coin_5: 2278881825021241808
-      coin_6: 1763547749914876530
-      coin_7: 5999283557275819326
-      coin_8: -1468538274757268107
-      coin_9: -7420241631526070820
+      slime_purple_0: -1617209406775790638
+      slime_purple_1: 3387878688400670293
+      slime_purple_10: -4078577588832239441
+      slime_purple_11: -2663131328560803267
+      slime_purple_2: -4394475738540041557
+      slime_purple_3: 1214624252112049841
+      slime_purple_4: 2519323123592359420
+      slime_purple_5: 1982192389137497048
+      slime_purple_6: 3014350427971737073
+      slime_purple_7: -5185611389655813280
+      slime_purple_8: 3533774183753432373
+      slime_purple_9: -9188101176490687506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
