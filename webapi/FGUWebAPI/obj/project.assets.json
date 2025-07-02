@@ -4988,11 +4988,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\FGUWebAPI\\FGUWebAPI.csproj",
+      "projectUniqueName": "D:\\FPT\\2.FGU301-Game UNITY\\DATABASE_game\\FGU301-Project\\webapi\\FGUWebAPI\\FGUWebAPI.csproj",
       "projectName": "FGUWebAPI",
-      "projectPath": "C:\\Users\\HP\\FGUWebAPI\\FGUWebAPI.csproj",
+      "projectPath": "D:\\FPT\\2.FGU301-Game UNITY\\DATABASE_game\\FGU301-Project\\webapi\\FGUWebAPI\\FGUWebAPI.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\FGUWebAPI\\obj\\",
+      "outputPath": "D:\\FPT\\2.FGU301-Game UNITY\\DATABASE_game\\FGU301-Project\\webapi\\FGUWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

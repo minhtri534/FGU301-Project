@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4IOXm6cgfXM=",
+  "dgSpecHash": "z/SlcRirJwk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\FGUWebAPI\\FGUWebAPI.csproj",
+  "projectFilePath": "D:\\FPT\\2.FGU301-Game UNITY\\DATABASE_game\\FGU301-Project\\webapi\\FGUWebAPI\\FGUWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

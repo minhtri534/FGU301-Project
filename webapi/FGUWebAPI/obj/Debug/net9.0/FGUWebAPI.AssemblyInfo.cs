@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FGUWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d2c4a912cb798c45417bd60a3ae9a30a5ca5a69")]
 [assembly: System.Reflection.AssemblyProductAttribute("FGUWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FGUWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

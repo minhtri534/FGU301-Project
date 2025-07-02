@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using FGUWebAPI.Models;
 using FGUWebAPI.Data;
+using FGUWebAPI.Helpers;
 
 namespace FGUWebAPI.Controllers
 {
@@ -15,7 +16,6 @@ namespace FGUWebAPI.Controllers
             _context = context;
         }
 
-        // ✅ API lưu dữ liệu từ Unity
         [HttpPost("save")]
         public async Task<IActionResult> SaveProgress([FromBody] PlayerProgressDto dto)
         {
@@ -47,7 +47,7 @@ namespace FGUWebAPI.Controllers
                     p.Score,
                     p.LevelCompleted,
                     p.TotalCoins,
-                    p.PlayTimeSeconds,
+                    PlayTime = TimeHelper.FormatTimeFromSeconds(p.PlayTimeSeconds),
                     p.CompletedAt
                 })
                 .ToList();
