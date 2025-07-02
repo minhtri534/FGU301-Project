@@ -1,47 +1,85 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
-    public float max_move_speed = 6;
-    public float acceleration = 25;
-    public float jump_force = 9;
-    public Animator anim;
-    private Rigidbody2D rb;
+    readonly private float coyoteTime = 0.2f;
+    readonly private float maxFallVelocity = -20;
+    public float MaxMoveSpeed = 8;
+    public float Acceleration = 90;
+    public float JumpForce = 13;
     public ContactFilter2D ContactFilter;
-    //private bool IsGrounded => rb.IsTouching(ContactFilter);
+    public Animator Anim;
+    private Rigidbody2D rb;
     private InputAction move;
     private InputAction jump;
+    private bool hasJumped = false;
+    private float currentCoyoteTime = 0.0f;
+    private bool canCoyoteJump = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
         move = InputSystem.actions.FindAction("Move");
         jump = InputSystem.actions.FindAction("Jump");
+        rb.gravityScale = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float move_value = move.ReadValue<float>();
-        // Increase speed by acceleration until max speed
-        if (Mathf.Abs(rb.linearVelocityX) < max_move_speed)
+        // prevent the player from falling too fast
+        if (rb.linearVelocityY < maxFallVelocity)
         {
-            rb.linearVelocityX += acceleration * move_value * Time.deltaTime;
+            rb.linearVelocityY = maxFallVelocity;
         }
-        rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -max_move_speed, max_move_speed);
+        float move_value = move.ReadValue<float>();
+        // Increase speed by Acceleration until max speed
+        if (Mathf.Abs(rb.linearVelocityX) < MaxMoveSpeed)
+        {
+            rb.linearVelocityX += Acceleration * move_value * Time.deltaTime;
+        }
+        rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -MaxMoveSpeed, MaxMoveSpeed);
         if (move_value == 0)
         {
-            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, acceleration * Time.deltaTime);
+            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, Acceleration * Time.deltaTime);
         }
-        
 
-        // Jumping
-        if (jump.WasPressedThisFrame() && IsGrounded())
+
+        // coyote jump
+        if (IsGrounded())
         {
-            rb.linearVelocityY = jump_force;
+            canCoyoteJump = true;
+            currentCoyoteTime = 0;
         }
+        else if (!jump.IsPressed())
+        {
+            currentCoyoteTime += Time.deltaTime;
+            if (currentCoyoteTime >= coyoteTime)
+            {
+                canCoyoteJump = false;
+            }
+        }
+
+        // Jumping with variable height
+        if (jump.IsPressed())
+        {
+            if (IsGrounded() || canCoyoteJump)
+            {
+                rb.linearVelocityY = JumpForce;
+                canCoyoteJump = false;
+                hasJumped = true;
+            }
+        }
+        if (hasJumped && jump.WasReleasedThisFrame())
+        {
+            hasJumped = false;
+            rb.linearVelocityY *= 0.5f;
+        }
+
 
         // Flip model
         if (move.ReadValue<float>() != 0)
@@ -49,10 +87,10 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(move_value, 1, 1);
         }
         // Animation(cần có trị tuyệt đối do đk là lớn hơn 0.1 thì player run)
-        anim.SetFloat("move", Mathf.Abs(move_value));
+        Anim.SetFloat("move", Mathf.Abs(move_value));
 
         //  (chưa xong)
-        anim.SetBool("jump", !IsGrounded());
+        Anim.SetBool("jump", !IsGrounded());
     }
 
     private bool IsGrounded()
