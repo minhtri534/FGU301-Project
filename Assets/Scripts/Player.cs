@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,9 @@ public class Player : MonoBehaviour
     public float JumpForce = 13;
     public ContactFilter2D ContactFilter;
     public Animator Anim;
+    public bool IsDead = false;
     private Rigidbody2D rb;
+    private Collider2D c;
     private InputAction move;
     private InputAction jump;
     private bool hasJumped = false;
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        c = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         move = InputSystem.actions.FindAction("Move");
@@ -31,70 +35,91 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // prevent the player from falling too fast
-        if (rb.linearVelocityY < maxFallVelocity)
+        if (!IsDead)
         {
-            rb.linearVelocityY = maxFallVelocity;
-        }
-        float move_value = move.ReadValue<float>();
-        // Increase speed by Acceleration until max speed
-        if (Mathf.Abs(rb.linearVelocityX) < MaxMoveSpeed)
-        {
-            rb.linearVelocityX += Acceleration * move_value * Time.deltaTime;
-        }
-        rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -MaxMoveSpeed, MaxMoveSpeed);
-        if (move_value == 0)
-        {
-            rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, Acceleration * Time.deltaTime);
-        }
-
-
-        // coyote jump
-        if (IsGrounded())
-        {
-            canCoyoteJump = true;
-            currentCoyoteTime = 0;
-        }
-        else if (!jump.IsPressed())
-        {
-            currentCoyoteTime += Time.deltaTime;
-            if (currentCoyoteTime >= coyoteTime)
+            // prevent the player from falling too fast
+            if (rb.linearVelocityY < maxFallVelocity)
             {
-                canCoyoteJump = false;
+                rb.linearVelocityY = maxFallVelocity;
             }
-        }
-
-        // Jumping with variable height
-        if (jump.IsPressed())
-        {
-            if (IsGrounded() || canCoyoteJump)
+            float move_value = move.ReadValue<float>();
+            // Increase speed by Acceleration until max speed
+            if (Mathf.Abs(rb.linearVelocityX) < MaxMoveSpeed)
             {
-                rb.linearVelocityY = JumpForce;
-                canCoyoteJump = false;
-                hasJumped = true;
+                rb.linearVelocityX += Acceleration * move_value * Time.deltaTime;
             }
-        }
-        if (hasJumped && jump.WasReleasedThisFrame())
-        {
-            hasJumped = false;
-            rb.linearVelocityY *= 0.5f;
-        }
+            rb.linearVelocityX = Mathf.Clamp(rb.linearVelocityX, -MaxMoveSpeed, MaxMoveSpeed);
+            if (move_value == 0)
+            {
+                rb.linearVelocityX = Mathf.MoveTowards(rb.linearVelocityX, 0, Acceleration * Time.deltaTime);
+            }
 
 
-        // Flip model
-        if (move.ReadValue<float>() != 0)
-        {
-            transform.localScale = new Vector3(move_value, 1, 1);
-        }
-        // Animation(cần có trị tuyệt đối do đk là lớn hơn 0.1 thì player run)
-        Anim.SetFloat("move", Mathf.Abs(move_value));
+            // coyote jump
+            if (IsGrounded())
+            {
+                canCoyoteJump = true;
+                currentCoyoteTime = 0;
+            }
+            else if (!jump.IsPressed())
+            {
+                currentCoyoteTime += Time.deltaTime;
+                if (currentCoyoteTime >= coyoteTime)
+                {
+                    canCoyoteJump = false;
+                }
+            }
 
-        //  (chưa xong)
-        Anim.SetBool("jump", !IsGrounded());
+            // Jumping with variable height
+            if (jump.IsPressed())
+            {
+                if (IsGrounded() || canCoyoteJump)
+                {
+                    rb.linearVelocityY = JumpForce;
+                    canCoyoteJump = false;
+                    hasJumped = true;
+                }
+            }
+            if (hasJumped && jump.WasReleasedThisFrame())
+            {
+                hasJumped = false;
+                rb.linearVelocityY *= 0.5f;
+            }
+
+
+            // Flip model
+            if (move.ReadValue<float>() != 0)
+            {
+                transform.localScale = new Vector3(move_value, 1, 1);
+            }
+            // Animation(cần có trị tuyệt đối do đk là lớn hơn 0.1 thì player run)
+            Anim.SetFloat("move", Mathf.Abs(move_value));
+
+            //  (chưa xong)
+            Anim.SetBool("jump", !IsGrounded());
+        }
     }
 
     private bool IsGrounded()
     {
         return rb.IsTouching(ContactFilter);
+    }
+
+    public void Bounce()
+    {
+        rb.linearVelocityY = JumpForce;
+    }
+
+    public IEnumerator Die()
+    {
+        IsDead = true;
+        Destroy(c);
+        rb.linearVelocityY = JumpForce;
+        yield return new WaitForSeconds(4);
+        Destroy(gameObject);
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
     }
 }
