@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameOverUI.SetActive(true);
 
-        SaveGameAndSubmitScore(false); 
+        SaveGameAndSubmitScore(false);
     }
 
     public void GameWin()
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameWinUI.SetActive(true);
 
-        SaveGameAndSubmitScore(true); 
+        SaveGameAndSubmitScore(true);
     }
 
 
@@ -63,8 +63,14 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore();
         Time.timeScale = 1;
-        SceneManager.LoadScene("Level 1");
-        SceneManager.LoadScene("Level 2");
+        if (SceneManager.GetActiveScene().name.Equals("Level 1"))
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level 2");
+        }
     }
 
     public void GotoMenu()
@@ -86,9 +92,9 @@ public class GameManager : MonoBehaviour
     private void SaveGameAndSubmitScore(bool win)
     {
         int playTime = (int)Time.timeSinceLevelLoad;
-        string playerName = "Player1"; // ❗You can replace this with a user input later
+        string playerName = "Player1"; 
         int level = win ? 1 : 0;
-        int coins = 0; // replace if you track coins
+        int coins = 0; 
 
         var saver = FindObjectOfType<GameSaver>();
         if (saver != null)

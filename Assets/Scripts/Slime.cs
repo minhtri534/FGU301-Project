@@ -13,9 +13,11 @@ public class Slime : MonoBehaviour
     private int direction = 1;
     private GameObject player;
     private Collider2D sc;
+    private GameObject gameManager;
 
     void Start()
     {
+        gameManager = GameObject.Find("GameManager");
         rb = GetComponent<Rigidbody2D>();
         c = GetComponent<Collider2D>();
         player = GameObject.Find("Knight");
@@ -48,6 +50,7 @@ public class Slime : MonoBehaviour
 
     public IEnumerator Die()
     {
+        gameManager.GetComponent<GameManager>().AddScore(2);
         Destroy(c);
         Destroy(sc);
         rb.linearVelocityY = 6;
