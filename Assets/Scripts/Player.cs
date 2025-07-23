@@ -21,12 +21,14 @@ public class Player : MonoBehaviour
     private bool hasJumped = false;
     private float currentCoyoteTime = 0.0f;
     private bool canCoyoteJump = false;
+    private GameObject gameManager;
 
     void Start()
     {
         c = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
+        gameManager = GameObject.Find("GameManager");
         move = InputSystem.actions.FindAction("Move");
         jump = InputSystem.actions.FindAction("Jump");
         rb.gravityScale = 4;
@@ -117,6 +119,7 @@ public class Player : MonoBehaviour
         rb.linearVelocityY = JumpForce;
         yield return new WaitForSeconds(4);
         Destroy(gameObject);
+        gameManager.GetComponent<GameManager>().GameOver();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

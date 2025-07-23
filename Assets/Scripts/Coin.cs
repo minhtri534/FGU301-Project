@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Key : MonoBehaviour
+public class Coin : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Collider2D c;
@@ -19,8 +18,7 @@ public class Key : MonoBehaviour
     {
 
     }
-
-    public IEnumerator Win()
+    public IEnumerator Collect()
     {
         Destroy(c);
         rb.gravityScale = 2;
@@ -28,14 +26,14 @@ public class Key : MonoBehaviour
         rb.angularVelocity = 10;
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
-        SceneManager.LoadScene("Level 2");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == player)
         {
-            StartCoroutine(Win());
+            StartCoroutine(Collect());
         }
     }
+
 }
