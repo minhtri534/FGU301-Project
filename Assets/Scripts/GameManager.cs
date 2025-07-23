@@ -86,9 +86,9 @@ public class GameManager : MonoBehaviour
     private void SaveGameAndSubmitScore(bool win)
     {
         int playTime = (int)Time.timeSinceLevelLoad;
-        string playerName = "Player1"; // ❗You can replace this with a user input later
+        string playerName = "Player1"; 
         int level = win ? 1 : 0;
-        int coins = 0; // replace if you track coins
+        int coins = 0; 
 
         var saver = FindObjectOfType<GameSaver>();
         if (saver != null)
