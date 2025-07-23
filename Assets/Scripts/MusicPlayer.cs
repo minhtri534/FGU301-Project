@@ -19,19 +19,19 @@ public class MusicPlayer : MonoBehaviour
 
     }
 
-    void PlayTrack(int trackNumber)
+    public void PlayTrack(int trackNumber)
     {
         audio.Stop();
         audio.resource = Songs[trackNumber];
         audio.Play();
     }
 
-    void PausePlaying()
+    public void PausePlaying()
     {
         audio.Pause();
     }
 
-    void UnPausePlaying()
+    public void UnPausePlaying()
     {
         audio.UnPause();
     }
