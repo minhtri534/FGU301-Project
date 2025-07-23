@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System;
-using System.Text; // ⬅️ QUAN TRỌNG cho Encoding.UTF8
+using System.Text; 
 using TMPro;
 
 [System.Serializable]
