@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System;
+using System.Text; // ⬅️ QUAN TRỌNG cho Encoding.UTF8
+using TMPro;
+
+[System.Serializable]
+public class ScoreSubmission
+{
+    public string playerName;
+    public int levelCompleted;
+    public int totalCoins;
+    public int score;
+    public int playTimeSeconds;
+}
 
 [System.Serializable]
 public class LeaderboardEntry
@@ -45,6 +57,29 @@ public class LeaderboardFetcher : MonoBehaviour
         }
     }
 
+    public void SubmitScore(ScoreSubmission submission)
+    {
+        StartCoroutine(SendScore(submission));
+    }
+
+    private IEnumerator SendScore(ScoreSubmission submission)
+    {
+        string json = JsonUtility.ToJson(submission);
+
+        UnityWebRequest request = new UnityWebRequest("http://localhost:5164/api/progress/save", "POST");
+        byte[] body = Encoding.UTF8.GetBytes(json);
+
+        request.uploadHandler = new UploadHandlerRaw(body);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+            Debug.Log("✅ Score submitted to leaderboard!");
+        else
+            Debug.LogError("❌ Leaderboard submission failed: " + request.error);
+    }
 
     [Serializable]
     private class LeaderboardWrapper

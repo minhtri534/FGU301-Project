@@ -1,6 +1,8 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -39,9 +41,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        score = 0;
         Time.timeScale = 0;
         gameOverUI.SetActive(true);
+
+        SaveGameAndSubmitScore(false); 
     }
 
     public void GameWin()
@@ -49,7 +52,10 @@ public class GameManager : MonoBehaviour
         isGameWin = true;
         Time.timeScale = 0;
         gameWinUI.SetActive(true);
+
+        SaveGameAndSubmitScore(true); 
     }
+
 
     public void RestartGame()
     {
@@ -75,5 +81,34 @@ public class GameManager : MonoBehaviour
     public bool IsGameWin()
     {
         return isGameWin;
-    }    
+    }
+
+    private void SaveGameAndSubmitScore(bool win)
+    {
+        int playTime = (int)Time.timeSinceLevelLoad;
+        string playerName = "Player1"; // ❗You can replace this with a user input later
+        int level = win ? 1 : 0;
+        int coins = 0; // replace if you track coins
+
+        var saver = FindObjectOfType<GameSaver>();
+        if (saver != null)
+        {
+            saver.SaveGame(playerName, level, coins, score, playTime);
+        }
+
+        var fetcher = FindObjectOfType<LeaderboardFetcher>();
+        if (fetcher != null)
+        {
+            ScoreSubmission submission = new ScoreSubmission
+            {
+                playerName = playerName,
+                score = score,
+                levelCompleted = level,
+                totalCoins = coins,
+                playTimeSeconds = playTime
+            };
+            fetcher.SubmitScore(submission);
+        }
+    }
+
 }
