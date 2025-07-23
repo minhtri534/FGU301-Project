@@ -34,6 +34,11 @@ public class LeaderboardFetcher : MonoBehaviour
         StartCoroutine(GetLeaderboard());
     }
 
+    void Start()
+    {
+        FetchLeaderboard();
+    }
+    
     private IEnumerator GetLeaderboard()
     {
         UnityWebRequest request = UnityWebRequest.Get("http://localhost:5164/api/progress/leaderboard");

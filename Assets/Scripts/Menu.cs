@@ -9,6 +9,11 @@ public class Menu : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit(); 
+        Application.Quit();
+    }
+
+    public void LeaderBoard()
+    {
+        SceneManager.LoadScene("LeaderBoard");
     }
 }
