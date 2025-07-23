@@ -26,7 +26,7 @@ public class Key : MonoBehaviour
         rb.gravityScale = 2;
         rb.linearVelocityY = 8;
         rb.angularVelocity = 10;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
         SceneManager.LoadScene("Level 2");
     }

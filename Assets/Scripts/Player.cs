@@ -117,14 +117,7 @@ public class Player : MonoBehaviour
         IsDead = true;
         Destroy(c);
         rb.linearVelocityY = JumpForce;
-
-        var gm = FindFirstObjectByType<GameManager>();
-        if (gm != null)
-        {
-            gm.GameOver();
-        }
-
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
         gameManager.GetComponent<GameManager>().GameOver();
     }
