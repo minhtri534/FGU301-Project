@@ -312,7 +312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: gag
+  m_text: bingus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38d6b0025f5dae740946c7e0d6c9105a, type: 2}
   m_sharedMaterial: {fileID: -6799989925241842801, guid: 38d6b0025f5dae740946c7e0d6c9105a, type: 2}
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: nick
+  m_text: john
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38d6b0025f5dae740946c7e0d6c9105a, type: 2}
   m_sharedMaterial: {fileID: -6799989925241842801, guid: 38d6b0025f5dae740946c7e0d6c9105a, type: 2}

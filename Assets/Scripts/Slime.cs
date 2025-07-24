@@ -1,6 +1,4 @@
 using System.Collections;
-using UnityEditor.Callbacks;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Slime : MonoBehaviour
@@ -10,7 +8,7 @@ public class Slime : MonoBehaviour
     public ContactFilter2D LeftContactFilter;
     private Rigidbody2D rb;
     private Collider2D c;
-    private int direction = 1;
+    private int direction = -1;
     private GameObject player;
     private Collider2D sc;
     private GameObject gameManager;
@@ -36,6 +34,7 @@ public class Slime : MonoBehaviour
         {
             direction = 1;
         }
+        transform.localScale = new Vector3(-direction, 1, 1);
     }
 
     private bool IsOnRightWall()
